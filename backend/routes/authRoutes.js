@@ -21,4 +21,38 @@ router.post('/login', (req, res) => {
   }
 });
 
+router.post('/signup', (req, res) => {
+  const { email, password, name, role } = req.body;
+
+  // Validate input
+  if (!email || !password || !name || !role) {
+    return res.status(400).json({ message: 'All fields are required' });
+  }
+
+  // Check if user already exists
+  if (users.find(u => u.email === email)) {
+    return res.status(409).json({ message: 'Email already registered' });
+  }
+
+  // Create new user
+  const newUser = {
+    id: users.length + 1,
+    email,
+    password,
+    name,
+    role
+  };
+
+  users.push(newUser);
+
+  // Generate token
+  const token = jwt.sign(
+    { id: newUser.id, email: newUser.email, role: newUser.role, name: newUser.name },
+    SECRET_KEY,
+    { expiresIn: '1h' }
+  );
+
+  res.status(201).json({ token, role: newUser.role, name: newUser.name, message: 'Signup successful' });
+});
+
 module.exports = router;
