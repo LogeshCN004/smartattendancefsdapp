@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { setToken, setUser } from '../utils/auth';
 
 const Login = () => {
-  const [email, setEmail] = useState('admin@example.com');
-  const [password, setPassword] = useState('password123');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
@@ -74,6 +74,12 @@ const Login = () => {
           HR: hr@example.com<br />
           Employee: employee@example.com<br />
           (Password: password123)
+        </div>
+        <div style={{ marginTop: '1.5rem', textAlign: 'center', fontSize: 'clamp(0.8rem, 0.9vw, 0.9rem)', color: 'var(--text-muted)' }}>
+          Don't have an account?{' '}
+          <Link to="/signup" style={{ color: 'var(--primary)', textDecoration: 'none', fontWeight: 'bold' }}>
+            Create Account
+          </Link>
         </div>
       </div>
     </div>
