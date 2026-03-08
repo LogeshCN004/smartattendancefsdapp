@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 import { Dashboard, EmployeesPage, InsightsPage } from './pages/Dashboard';
 import LeaveManagement from './pages/LeaveManagement';
 import { getToken } from './utils/auth';
@@ -33,6 +34,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         
         <Route path="/dashboard" element={
           <PrivateRoute>
