@@ -1,4 +1,4 @@
-# Smart Attendance and Productivity Analyzer
+# WorkPulse - Smart Attendance and Productivity Analyzer
 
 A modern, responsive, and intuitive web application designed for seamless employee attendance tracking, productivity monitoring, and AI-driven insights. Built entirely without complex styling frameworks to demonstrate clean architecture, and features a robust Role-Based Access Control logic for different organizational levels.
 
